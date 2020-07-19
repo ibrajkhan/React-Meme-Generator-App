@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../App.css';
 
 class MemeGenerator extends Component {
   constructor() {
@@ -9,14 +10,14 @@ class MemeGenerator extends Component {
       randomImage: "http://i.imgflip.com/1bij.jpg",
       allMemeImg: [],
     };
-    this.handelChange = this.handelChange.bind(this)
+    this.handelChange = this.handelChange.bind(this);
   }
 
   componentDidMount() {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
       .then((response) => {
-        const { memes } = response.data;
+        const {memes}   = response.data;
         console.log(memes[0]);
         this.setState({
           allMemeImg: memes,
@@ -24,15 +25,22 @@ class MemeGenerator extends Component {
       });
   }
 
-  handelChange(event){
+  handelChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value,
+    });
+  }
+  handelSubmit=(event)=>{
+    event.preventDefault()
+    const randNum = Math.floor(Math.random() * this.state.allMemeImg.length)
+    const ranadMemeImg = this.state.allMemeImg[randNum].url
+    this.setState({ randomImage: ranadMemeImg})
+
   }
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handelSubmit}>
           <input
             type="text"
             name="topText"
@@ -40,7 +48,7 @@ class MemeGenerator extends Component {
             onChange={this.handelChange}
             placeholder="Top text here..."
           />
-          <br/>
+          <br />
           <input
             type="text"
             name="bottomText"
@@ -50,9 +58,11 @@ class MemeGenerator extends Component {
           />
           <button>Gen</button>
         </form>
-        {this.state.topText}
-        <br/>
-        {this.state.bottomText}
+        <div>
+          <img src={this.state.randomImage} alt="Something gonna wrong...." />
+          <h2 className='top'>{this.state.topText}</h2>
+          <h2 className='bottom'>{this.state.bottomText}</h2>
+        </div>
       </div>
     );
   }
