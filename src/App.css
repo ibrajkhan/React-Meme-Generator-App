@@ -1,8 +1,113 @@
- .top{
-   color: whitesmoke;
-   position: absolute;top: 420px;left: 100px;;;
- }
- .bottom{
-   color: whitesmoke;
-   position: absolute;top: 650px;left: 100px;
- }
+body {
+  margin: 0;
+  background-color: aliceblue;
+}
+.header {
+  height: 150px;
+  display: flex;
+  font-family: cursive;
+  color: tomato;
+  background-color: yellowgreen;
+  font-size: 20px;
+  border-bottom: tomato 3px solid;
+}
+span {
+  color: rgb(0, 82, 78);
+}
+.header-img {
+  height: 150px;
+}
+.header-txt {
+  margin: 50px;
+}
+.form {
+  height: 130px;
+  display: flex;
+}
+.toptext {
+  padding: 4px;
+  height: 27px;
+  width: 200px;
+  margin-left: 300px;
+  border-radius: 0.5ex;
+  margin-top: 35px;
+  font-weight: bold;
+}
+.bottomtext {
+  padding: 4px;
+  height: 27px;
+  margin-left: 50px;
+  width: 200px;
+  border-radius: 0.5ex;
+  margin-top: 35px;
+  font-weight: bold;
+}
+button {
+  margin-top: 35px;
+  margin-left: 10px;
+  height: 38px;
+  width: 90px;
+  background-color: darkslategray;
+  color: blanchedalmond;
+  border-radius: 0.5ex;
+}
+.top {
+  color: whitesmoke;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 27px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 290px;
+  left: 350px;
+}
+.bottom {
+  color: whitesmoke;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 27px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 600px;
+  left: 350px;
+}
+.image {
+  height: 400px;
+  margin-left: 300px;
+}
+button:hover {
+  background-color: #35424a;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .header-txt {
+    margin: 25px;
+  }
+  .toptext {
+    margin-left: 15px;
+    position: absolute;
+    top: 140px;
+    left: 10px;
+  }
+  .bottomtext {
+    margin-left: 15px;
+    position: absolute;
+    top: 190px;
+    left: 10px;
+  }
+  button {
+    position: absolute;
+    top: 190px;
+    left: 230px;
+  }
+  .image {
+    margin-left: 20px;
+    width: 460px;
+  }
+  .top {
+    position: absolute;
+    left: 70px;
+  }
+  .bottom {
+    position: absolute;
+    left: 70px;
+  }
+}

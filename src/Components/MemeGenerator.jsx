@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import '../App.css';
+import "../App.css";
 
 class MemeGenerator extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class MemeGenerator extends Component {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
       .then((response) => {
-        const {memes}   = response.data;
+        const { memes } = response.data;
         console.log(memes[0]);
         this.setState({
           allMemeImg: memes,
@@ -30,18 +30,18 @@ class MemeGenerator extends Component {
       [event.target.name]: event.target.value,
     });
   }
-  handelSubmit=(event)=>{
-    event.preventDefault()
-    const randNum = Math.floor(Math.random() * this.state.allMemeImg.length)
-    const ranadMemeImg = this.state.allMemeImg[randNum].url
-    this.setState({ randomImage: ranadMemeImg})
-
-  }
+  handelSubmit = (event) => {
+    event.preventDefault();
+    const randNum = Math.floor(Math.random() * this.state.allMemeImg.length);
+    const ranadMemeImg = this.state.allMemeImg[randNum].url;
+    this.setState({ randomImage: ranadMemeImg });
+  };
   render() {
     return (
       <div>
-        <form onSubmit={this.handelSubmit}>
+        <form className="form" onSubmit={this.handelSubmit}>
           <input
+            className="toptext"
             type="text"
             name="topText"
             value={this.state.topText}
@@ -50,6 +50,7 @@ class MemeGenerator extends Component {
           />
           <br />
           <input
+           className="bottomtext"
             type="text"
             name="bottomText"
             value={this.state.bottomText}
@@ -59,9 +60,9 @@ class MemeGenerator extends Component {
           <button>Gen</button>
         </form>
         <div>
-          <img src={this.state.randomImage} alt="Something gonna wrong...." />
-          <h2 className='top'>{this.state.topText}</h2>
-          <h2 className='bottom'>{this.state.bottomText}</h2>
+          <img className="image" src={this.state.randomImage} alt="Something gonna wrong...." />
+          <h2 className="top">{this.state.topText}</h2>
+          <h2 className="bottom">{this.state.bottomText}</h2>
         </div>
       </div>
     );

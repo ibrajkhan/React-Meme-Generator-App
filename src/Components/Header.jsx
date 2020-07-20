@@ -1,12 +1,15 @@
 import React from "react";
+import "../App.css";
+
 
 const Header = () => {
   return (
-    <header>
-      <img
-        src="https://lifeofgeek.com/wp-content/uploads/2017/02/how-to-become-a-meme-creator.jpg"
+    <header className='header'>
+      <img className='header-img'
+        src="https://imgflip.com/s/meme/Yao-Ming.jpg"
         alt="Problem!"
       />
+      <h1 className="header-txt"><span>Meme</span> Generator</h1>
     </header>
   );
 };
